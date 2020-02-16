@@ -5,6 +5,14 @@
 
 {% block content %}
 
+<div class="row mt-5">
+    {% if messages %}
+            {% for message in messages %}
+              {{message}}
+            {% endfor %}
+        {% endif %}
+        </div>
+
 <br>
 <div class="card">
   <h5 class="card-header">Create Car</h5>

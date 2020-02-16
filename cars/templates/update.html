@@ -4,17 +4,26 @@
 {% block title %}Update Car{% endblock title %}
 
 {% block content %}
+
+<div class="row mt-5">
+					{% if messages %}
+									{% for message in messages %}
+										{{message}}
+									{% endfor %}
+							{% endif %}
+</div>
+
 <br>
 <div class="card">
-  <h5 class="card-header">Update: {{car_obj.make}}</h5>
-  <div class="card-body">
-    <p class="card-text">
-        <form action="{% url 'car-update' car_obj.id %}" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form|crispy}}
-            <input type="submit" value="Update" class="btn btn-outline-primary">
-        </form>
-    </p>
-  </div>
+	<h5 class="card-header">Update: {{car_obj.make}}</h5>
+	<div class="card-body">
+		<p class="card-text">
+				<form action="{% url 'car-update' car_obj.id %}" method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
+						{{form|crispy}}
+						<input type="submit" value="Update" class="btn btn-outline-primary">
+				</form>
+		</p>
+	</div>
 </div>
 {% endblock content %}
